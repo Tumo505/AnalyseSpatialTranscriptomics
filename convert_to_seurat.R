@@ -22,4 +22,8 @@ processedSeuratObject <- CreateSeuratObject(counts = Raw_data, meta.data = metad
 
 view(processedSeuratObject@meta.data)
 
-saveRDS(processedSeuratObject, file="./")
+saveRDS(processedSeuratObject, file="./processed/processedSeuratObject.RDS")
+
+######################################################################################
+processedSeuratObject <- readRDS("./processed/processedSeuratObject.RDS")
+processedSeuratObject.list <- SplitObject(processedSeuratObject, split.by = "cell_type")
